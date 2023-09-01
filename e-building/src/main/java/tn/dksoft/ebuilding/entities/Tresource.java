@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,15 +13,12 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "Type", discriminatorType = DiscriminatorType.STRING)
 @Entity
-public abstract class Tresource {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @EqualsAndHashCode.Include
-    private long codeResource;
+@Table(name = "TResource")
+public abstract class Tresource extends AbstractGenericEntity {
+
     private String labelResource;
     private double unitCost;
     private Integer quantity;
@@ -34,8 +32,8 @@ public abstract class Tresource {
     @OneToMany(mappedBy = "tresource")
     private Collection<EntranceNote> entrees;
     @OneToMany(mappedBy = "resource")
-    private Collection<Orderitem>orderitems;
+    private Collection<OrderItem>orderitems;
     @OneToMany(mappedBy = "resource")
-    private Collection<Invoiceitem> invoiceitems;
+    private Collection<InvoiceItem> invoiceitems;
 
 }

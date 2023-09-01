@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -12,13 +13,10 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class EntranceNote {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private Long codeEN;
+@Table(name = "EntranceNote")
+public class EntranceNote extends AbstractGenericEntity {
+
     private Integer inputQuantity;
     private LocalDateTime date;
     private double unitAmount;

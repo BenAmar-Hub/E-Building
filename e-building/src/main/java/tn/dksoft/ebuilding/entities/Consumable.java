@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 @Data @AllArgsConstructor @NoArgsConstructor
-@DiscriminatorValue("consumable")
+@DiscriminatorValue("Consumable")
 @Entity
 public class Consumable extends Tresource{
    private Integer deadlinesApprovisionnement;

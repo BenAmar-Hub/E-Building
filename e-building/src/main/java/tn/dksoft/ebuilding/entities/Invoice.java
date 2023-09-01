@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import tn.dksoft.ebuilding.enums.Regulation;
 
 import java.sql.Timestamp;
@@ -15,13 +16,10 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Invoice {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long invoiceId;
+@Table(name = "Invoice")
+public class Invoice extends AbstractGenericEntity {
+
     private LocalDateTime invoiceDate;
     private LocalDateTime datePayment;
     private double totalAmount;
@@ -29,9 +27,9 @@ public class Invoice {
     private Regulation regulation;
     private int deadlineInvoice;
     @OneToMany(mappedBy = "invoice")
-    private Collection<Deliverynote> deliverynotes;
+    private Collection<DeliveryNote> deliverynotes;
     @ManyToOne
     private Customer customer;
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
-    private Collection<Invoiceitem> invoiceitems=new ArrayList<>();
+    private Collection<InvoiceItem> invoiceitems=new ArrayList<>();
 }

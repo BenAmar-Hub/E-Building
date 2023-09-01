@@ -15,6 +15,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
+@Table(name = "TUser")
 public class Tuser {
     @EqualsAndHashCode.Include
     @Id
@@ -25,7 +26,7 @@ public class Tuser {
     @OneToOne(mappedBy = "user")
     private Customer customer;
     @OneToOne(mappedBy = "user")
-    private Humanresources humanresource;
+    private HumanResources humanresource;
     @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     private Collection<Trole> roles= new ArrayList<>();
 }

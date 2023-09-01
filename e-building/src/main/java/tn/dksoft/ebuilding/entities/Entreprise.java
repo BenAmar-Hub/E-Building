@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -12,15 +13,12 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "Type",length = 20)
 @Entity
-public abstract class Entreprise {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long codeE;
+@Table(name = "Entreprise")
+public abstract class Entreprise extends AbstractGenericEntity {
+
     private String nameE;
     private String contactE;
     private String emailE;
@@ -29,5 +27,5 @@ public abstract class Entreprise {
     private String desktopPhoneE;
     private String siteWebAdress;
     @OneToMany(mappedBy = "entreprise")
-    private Collection<Taddress> addresses;
+    private Collection<TAddress> addresses;
 }

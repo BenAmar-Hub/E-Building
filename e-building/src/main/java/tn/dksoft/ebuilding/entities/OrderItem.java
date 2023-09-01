@@ -5,19 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.util.Objects;
 //Entity Finish
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Orderitem {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long orderId;
+@Table(name = "OrderItem")
+public class OrderItem extends AbstractGenericEntity {
+
     private int quantityOrder;
     @Transient
     private int total;

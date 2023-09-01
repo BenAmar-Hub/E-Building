@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -14,13 +15,10 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Stock {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long stockId;
+@Table(name = "Stock")
+public class Stock extends AbstractGenericEntity {
+
     private int quantityInStock;
     private int unitOfMeasurement;
     private LocalDateTime dateStck;

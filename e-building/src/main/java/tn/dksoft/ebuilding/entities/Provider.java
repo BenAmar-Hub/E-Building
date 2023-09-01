@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 //Entity Finish
@@ -14,7 +15,7 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("PROVIDER")
+@DiscriminatorValue("Provider")
 public class Provider extends Entreprise {
     @ManyToMany(mappedBy = "providers")
     private Collection<Tresource>resources=new ArrayList<>();

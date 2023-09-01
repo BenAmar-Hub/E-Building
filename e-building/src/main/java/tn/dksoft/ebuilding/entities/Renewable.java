@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 @Data @AllArgsConstructor @NoArgsConstructor
-@DiscriminatorValue("renewable")
+@DiscriminatorValue("Renewable")
 @Entity
 public class Renewable extends Tresource{
   private boolean etatDisposition;

@@ -11,9 +11,9 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("humanResource")
+@DiscriminatorValue("HumanResource")
 @Entity
-public class Humanresources extends Renewable{
+public class HumanResources extends Renewable{
     private String nameRH;
     @OneToOne(mappedBy = "manager")
    private Project project;

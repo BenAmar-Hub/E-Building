@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import tn.dksoft.ebuilding.enums.Status;
 
 import java.sql.Timestamp;
@@ -15,13 +16,10 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Project {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long codeProject;
+@Table(name = "Project")
+public class Project extends AbstractGenericEntity {
+
     private String description;
     private String serviceOrder;
     private LocalDateTime startExpectedDate;
@@ -32,10 +30,10 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Collection<Tschedule>tschedules;
     @OneToOne
-    private Taddress address;
+    private TAddress address;
     @ManyToOne
     private Customer customer;
     @OneToOne
-    private Humanresources manager;
+    private HumanResources manager;
 
 }

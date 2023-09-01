@@ -15,6 +15,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
+@Table(name = "TRole")
 public class Trole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include

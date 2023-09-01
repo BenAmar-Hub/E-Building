@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import tn.dksoft.ebuilding.enums.Status;
 
 import java.sql.Timestamp;
@@ -16,18 +17,15 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Torder {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long orderId;
+@Table(name = "TOrder")
+public class Torder extends AbstractGenericEntity {
+
     private LocalDateTime orderDate;
     private String status;
     private int deadlineOrder;
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
-    private Collection<Orderitem> orderitems=new ArrayList<>();
+    private Collection<OrderItem> orderitems=new ArrayList<>();
     @ManyToOne
-    private Humanresources humanResource;
+    private HumanResources humanResource;
 }

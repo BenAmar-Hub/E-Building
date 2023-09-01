@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -14,12 +15,10 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Tschedule {
-    @Id
-    @EqualsAndHashCode.Include
-    private String codeSchedule;
+@Table(name = "TSchedule")
+public class Tschedule extends AbstractGenericEntity {
+
     private String designation;
     private LocalDateTime startDate;
     private LocalDateTime endDate;

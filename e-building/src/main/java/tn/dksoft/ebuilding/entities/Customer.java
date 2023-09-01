@@ -5,11 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Collection;
 @Data @AllArgsConstructor @NoArgsConstructor
 @Entity
-@DiscriminatorValue("customer")
-public class Customer extends  Entreprise{
+@DiscriminatorValue("Customer")
+public class Customer extends  Entreprise {
     @OneToMany(mappedBy = "customer")
     private Collection<Project>projects;
     @OneToOne

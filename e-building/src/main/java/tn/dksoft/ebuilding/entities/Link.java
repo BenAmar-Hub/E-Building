@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import tn.dksoft.ebuilding.enums.TypeLink;
 
 import java.util.Objects;
@@ -12,13 +13,10 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Link {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Id
-    private long idLink;
+@Table(name = "Link")
+public class Link extends AbstractGenericEntity {
+
     @Enumerated(EnumType.STRING)
     private TypeLink typeLink;
     @ManyToOne

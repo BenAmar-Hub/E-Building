@@ -5,19 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
-import java.util.Collection;
-import java.util.Objects;
+import java.io.Serializable;
 //finish Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Taddress {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    private long codeAddress;
+@Table(name = "TAddress")
+public class TAddress extends AbstractGenericEntity {
+
     private String addressLigne1;
     private String addressLigne2;
     private String addressLigne3;

@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 @Data @AllArgsConstructor @NoArgsConstructor
-@DiscriminatorValue("material")
+@DiscriminatorValue("Material")
 @Entity
-public class Materiel extends Renewable{
+@Table(name = "Material")
+public class Material extends Renewable{
     private String model;
     private String mark;
 }

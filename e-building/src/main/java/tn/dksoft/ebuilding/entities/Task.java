@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import tn.dksoft.ebuilding.enums.BillingStatus;
 import tn.dksoft.ebuilding.enums.PaymentStatus;
 import tn.dksoft.ebuilding.enums.Status;
@@ -18,13 +19,10 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
 @Entity
-public class Task {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @EqualsAndHashCode.Include
-    private long codeTask;
+@Table(name = "Task")
+public class Task extends AbstractGenericEntity {
+
     private String nameTask;
     private LocalDateTime startExpectedDate;
     private LocalDateTime endExpectedDate;

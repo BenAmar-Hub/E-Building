@@ -1,0 +1,12 @@
+package tn.dksoft.ebuilding.enums;
+
+
+public enum ErrorCode {
+    UNKNOWN_ERROR(0), DUPLICATED_NAME(1), DUPLICATED_EMAIL(2), NOT_FOUND_ID(3), INVALID_FIRST_NAME(4), INVALID_USERNAME(5), INVALID_EMAIL(6), INVALID_PASSWORD(6), INVALID_LAST_NAME(6),
+
+    BAD_CREDENTIAL(24), NULL_USER(26), NOT_FOUND_USERNAME_OR_EMAIL(27);
+
+    ErrorCode(int value) {
+    }
+}
+    
