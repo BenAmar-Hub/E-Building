@@ -11,6 +11,7 @@ import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.util.Objects;
 @Data
+@EqualsAndHashCode(callSuper=false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -22,5 +23,5 @@ public class InvoiceItem extends AbstractGenericEntity {
     @ManyToOne
     private Invoice invoice;
     @ManyToOne
-    private Tresource resource;
+    private Consumable consumableResource;
    }

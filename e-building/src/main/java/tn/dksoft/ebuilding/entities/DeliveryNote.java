@@ -13,6 +13,7 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "DeliveryNote")
 public class DeliveryNote extends AbstractGenericEntity {

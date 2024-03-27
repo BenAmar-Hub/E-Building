@@ -12,11 +12,13 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 //Entity Finish
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "TOrder")
 public class Torder extends AbstractGenericEntity {
@@ -24,8 +26,6 @@ public class Torder extends AbstractGenericEntity {
     private LocalDateTime orderDate;
     private String status;
     private int deadlineOrder;
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
-    private Collection<OrderItem> orderitems=new ArrayList<>();
     @ManyToOne
     private HumanResources humanResource;
 }

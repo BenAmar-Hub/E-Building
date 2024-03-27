@@ -12,6 +12,7 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "OrderItem")
 public class OrderItem extends AbstractGenericEntity {
@@ -21,7 +22,7 @@ public class OrderItem extends AbstractGenericEntity {
     private int total;
     private double price;
     @ManyToOne
-    private Tresource resource;
+    private Consumable consumableResource;
     @ManyToOne
     private Torder order;
    }

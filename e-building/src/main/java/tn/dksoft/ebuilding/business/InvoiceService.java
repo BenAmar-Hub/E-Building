@@ -1,4 +1,7 @@
 package tn.dksoft.ebuilding.business;
 
-public interface InvoiceService {
+import tn.dksoft.ebuilding.dtos.InvoiceDTO;
+import tn.dksoft.ebuilding.entities.Invoice;
+
+public interface InvoiceService extends GenericService<Invoice, Long, InvoiceDTO> {
 }

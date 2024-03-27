@@ -10,8 +10,6 @@ import tn.dksoft.ebuilding.mappers.GenericMapper;
 import tn.dksoft.ebuilding.repositories.GenericRepository;
 
 import java.io.Serializable;
-import java.lang.reflect.TypeVariable;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,13 +21,14 @@ public abstract class GenericServiceImpl<T extends AbstractGenericEntity, ID ext
     private final GenericRepository<T, ID> genericRepository;
     private final GenericMapper<V, T> genericMapper;
 
+
     @Override
     public V create(V v) {
         try {
-            T t = genericMapper.fromDtoToEntity(v);
+            T t = genericMapper.toEntity(v);
             genericRepository.saveAndFlush(t);
             log.info(t.getClass().getSimpleName() + " has be created !");
-            return genericMapper.fromEntityToDto(t);
+            return genericMapper.toDto(t);
         } catch (Exception e) {
             log.error("Cannot be created !");
             return null;
@@ -66,7 +65,7 @@ public abstract class GenericServiceImpl<T extends AbstractGenericEntity, ID ext
     public V getOneById(String t, ID id) {
         Optional<T> oneById = genericRepository.findOneById(id);
         if (oneById.isPresent()) {
-            return genericMapper.fromEntityToDto(oneById.get());
+            return genericMapper.toDto(oneById.get());
         } else {
             throw new EntityNotFoundException(t, "id", id.toString());
         }
@@ -75,10 +74,10 @@ public abstract class GenericServiceImpl<T extends AbstractGenericEntity, ID ext
     @Override
     public V update(V v) {
         try {
-            T t = genericMapper.fromDtoToEntity(v);
+            T t = genericMapper.toEntity(v);
             genericRepository.saveAndFlush(t);
             log.info(t.getClass().getSimpleName() + " has be changed !");
-            return genericMapper.fromEntityToDto(t);
+            return genericMapper.toDto(t);
         } catch (Exception e) {
             log.error("Cannot be changed !");
             return null;

@@ -1,24 +1,20 @@
 package tn.dksoft.ebuilding.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import tn.dksoft.ebuilding.enums.BillingStatus;
 import tn.dksoft.ebuilding.enums.PaymentStatus;
 import tn.dksoft.ebuilding.enums.Status;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 //finish Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "Task")
 public class Task extends AbstractGenericEntity {
@@ -38,21 +34,12 @@ public class Task extends AbstractGenericEntity {
     private String constraintType;
     private Integer ordinal;
     private Integer complete;
-    @OneToMany(mappedBy = "task")
-    private Collection<Affectationrh>affectationrhs;
-    @OneToMany(mappedBy = "task")
-    private Collection<Document>documents;
+
     @ManyToOne
     private Tschedule tschedule;
     @ManyToOne
     private Task parent;
-    @OneToMany(mappedBy = "parent")
-    private List<Task> taskChields;
-    @OneToMany(mappedBy = "taskFrom")
-    private Collection<Link> linksFrom;
-    @OneToMany(mappedBy = "taskTo")
-    private Collection<Link> linksTO;
-    @OneToMany(mappedBy = "task")
-    private Collection<Milestone> milestones;
+    @OneToMany
+    private List<Task> taskChields=new ArrayList<>();
 
 }

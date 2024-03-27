@@ -1,2 +1,22 @@
-package tn.dksoft.ebuilding.mappers;public interface EntranceNoteMapper {
+package tn.dksoft.ebuilding.mappers;
+
+import org.mapstruct.InjectionStrategy;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
+import org.springframework.stereotype.Component;
+import tn.dksoft.ebuilding.dtos.EntranceNoteDTO;
+import tn.dksoft.ebuilding.entities.EntranceNote;
+@Component
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, uses = {ConsumableMapper.class, StockMapper.class})
+
+public interface EntranceNoteMapper extends GenericMapper<EntranceNoteDTO, EntranceNote> {
+
+    @Override
+    @Mapping(ignore = true,target = "createdBy")
+    @Mapping(ignore = true,target = "creationDate")
+    @Mapping(ignore = true,target = "lastModifiedBy")
+    @Mapping(ignore = true,target = "lastModifiedDate")
+    @Mapping(ignore = true,target = "deleted")
+    EntranceNote toEntity(EntranceNoteDTO entranceNoteDTO);
 }

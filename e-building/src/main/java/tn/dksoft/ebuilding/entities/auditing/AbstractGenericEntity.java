@@ -14,7 +14,7 @@ import tn.dksoft.ebuilding.entities.Tuser;
 @NoArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public abstract class AbstractGenericEntity extends Auditable<String> {
 
     @Id

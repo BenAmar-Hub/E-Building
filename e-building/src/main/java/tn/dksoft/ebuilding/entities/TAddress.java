@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "TAddress")
 public class TAddress extends AbstractGenericEntity {
@@ -24,8 +25,4 @@ public class TAddress extends AbstractGenericEntity {
     private Integer postalCode;
     private Integer longitude;
     private Integer latitude;
-    @OneToOne(mappedBy = "address" )
-    private Project project;
-    @ManyToOne
-    private Entreprise entreprise;
 }

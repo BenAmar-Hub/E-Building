@@ -6,6 +6,7 @@ import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 
 import java.util.Objects;
 @Data @AllArgsConstructor @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "Affectationrh")
 public class Affectationrh extends AbstractGenericEntity {
@@ -17,6 +18,6 @@ public class Affectationrh extends AbstractGenericEntity {
     @ManyToOne
     private Task task;
     @ManyToOne
-    private Tresource tresource;
+    private HumanResources humanResource;
 
 }

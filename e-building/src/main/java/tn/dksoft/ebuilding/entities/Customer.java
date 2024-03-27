@@ -3,20 +3,19 @@ package tn.dksoft.ebuilding.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.Collection;
-@Data @AllArgsConstructor @NoArgsConstructor
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper=true)
 @Entity
 @DiscriminatorValue("Customer")
 public class Customer extends  Entreprise {
-    @OneToMany(mappedBy = "customer")
-    private Collection<Project>projects;
     @OneToOne
     private Tuser user;
-    @OneToMany(mappedBy = "customer")
-    private Collection<Devis> devis;
-    @OneToMany(mappedBy = "customer")
-    private Collection<Invoice> invoices;
 }

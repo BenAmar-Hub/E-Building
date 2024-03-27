@@ -1,2 +1,6 @@
-package tn.dksoft.ebuilding.repositories;public interface TscheduleRepository {
+package tn.dksoft.ebuilding.repositories;
+
+import tn.dksoft.ebuilding.entities.Tschedule;
+
+public interface TscheduleRepository extends GenericRepository<Tschedule, Long> {
 }

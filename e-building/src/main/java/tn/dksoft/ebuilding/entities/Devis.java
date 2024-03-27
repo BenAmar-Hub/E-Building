@@ -10,17 +10,17 @@ import tn.dksoft.ebuilding.entities.auditing.AbstractGenericEntity;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "Devis")
 public class Devis extends AbstractGenericEntity {
 
     private LocalDateTime dateDevis;
-    @OneToMany(mappedBy = "devis")
-    private Collection<DeliveryNote> deliverynotes;
     @ManyToOne
     private Customer customer;
 }

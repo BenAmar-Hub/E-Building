@@ -11,9 +11,10 @@ import tn.dksoft.ebuilding.enums.Regulation;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 @Data
+@EqualsAndHashCode(callSuper=false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -26,10 +27,6 @@ public class Invoice extends AbstractGenericEntity {
     @Enumerated(EnumType.STRING)
     private Regulation regulation;
     private int deadlineInvoice;
-    @OneToMany(mappedBy = "invoice")
-    private Collection<DeliveryNote> deliverynotes;
     @ManyToOne
     private Customer customer;
-    @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
-    private Collection<InvoiceItem> invoiceitems=new ArrayList<>();
 }

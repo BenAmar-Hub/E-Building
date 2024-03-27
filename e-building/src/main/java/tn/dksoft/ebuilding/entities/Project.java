@@ -10,12 +10,15 @@ import tn.dksoft.ebuilding.enums.Status;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 //Entity Finish
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "Project")
 public class Project extends AbstractGenericEntity {
@@ -23,12 +26,10 @@ public class Project extends AbstractGenericEntity {
     private String description;
     private String serviceOrder;
     private LocalDateTime startExpectedDate;
-    private LocalDateTime endExpectedDtae;
+    private LocalDateTime endExpectedDate;
     private double estimatedCost;
     @Enumerated(EnumType.STRING)
     private Status status;
-    @OneToMany(mappedBy = "project")
-    private Collection<Tschedule>tschedules;
     @OneToOne
     private TAddress address;
     @ManyToOne

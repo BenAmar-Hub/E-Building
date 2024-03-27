@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "EntranceNote")
 public class EntranceNote extends AbstractGenericEntity {
@@ -22,7 +23,7 @@ public class EntranceNote extends AbstractGenericEntity {
     private double unitAmount;
     private boolean transfert;
     @ManyToOne
-    private Tresource tresource;
+    private Consumable consumableResource;
     @ManyToOne
     private Stock stock;
 }

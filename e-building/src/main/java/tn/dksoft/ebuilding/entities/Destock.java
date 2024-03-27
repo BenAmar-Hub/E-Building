@@ -13,6 +13,7 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "Destock")
 public class Destock extends AbstractGenericEntity {
@@ -22,7 +23,7 @@ public class Destock extends AbstractGenericEntity {
     private double unitAmount;
     private boolean transfert;
     @ManyToOne
-    private Tresource tresource;
+    private Consumable consumableResource;
     @ManyToOne
     private Stock stock;
 }
